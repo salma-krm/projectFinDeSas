@@ -119,7 +119,7 @@ void Statistiques(){
     printf("1.la moyenne d age des patients ayant reserve");
     printf("2.le nombre de patients par tranche d age");
     scanf("%d",&choisir2);
-    for(int i=0 ; i<nombre_de_reservation ; i++){
+
         if(choisir2==1){
                 int somme =0;
                 int moyenne ;
@@ -127,12 +127,14 @@ void Statistiques(){
                somme+=reservation[i].age;
             }
             moyenne=somme/nombre_de_reservation;
+            printf("la moyen de est %d",moyenne);
 
         }
          else if(choisir2==2){
                 int cmp=0;
                 int cmp1=0;
                 int cmp2=0;
+                for(int i=0 ;i < nombre_de_reservation;i++){
             if(reservation[i].age>0 && reservation[i].age<=18){
                     cmp++;
 
@@ -143,12 +145,15 @@ void Statistiques(){
             }else{
                 cmp2++;
             }
-         printf("le nombre des patients  inferieur  a 18 ans:%d",cmp);
-         printf("le nombre des patients  entre 19 et 35:%d",cmp1);
-         printf("le nombre des patients  plus de 35ans:%d",cmp1);
+            }
 
+
+            printf("le nombre des patients  inferieur  a 18 ans:%d",cmp);
+            printf("le nombre des patients  entre 19 et 35:%d",cmp1);
+            printf("le nombre des patients  plus de 35ans:%d",cmp2);
         }
-    }
+
+
 
 }
 
