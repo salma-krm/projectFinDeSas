@@ -130,25 +130,29 @@ void suprimer_un_reservation(){
 void modifier_un_reservation(){
     int ref ;
     printf("\nentre le reference de reservation");
+    int indice =- 1;
     scanf("%d",&ref);
     for(int i ; i< nombre_de_reservation;i++){
         if(ref==reservation[i].reference){
-            printf(" veuillez entre le nom :");
-            scanf("%s",reservation[i].nom);
-            printf(" veuillez entre le prenom : ");
-            scanf("%s",reservation[i].prenom);
-            printf(" veuillez entre le numero de telephone : ");
-            scanf("%s",reservation[i].telephone);
-            printf("veuillez entre L age: ");
-            scanf("%d",&reservation[i].age);
-            printf("veuillez entre le statut :");
-            scanf("%s",reservation[i].statut);
-            printf("veuillez entre la date de reservation");
-            scanf("%s",reservation[i].date);
+          indice = i;
+          break;
         }
-
     }
 
+    if(indice != -12){
+            printf(" veuillez entre le nom :");
+            scanf("%s",reservation[indice].nom);
+            printf(" veuillez entre le prenom : ");
+            scanf("%s",reservation[indice].prenom);
+            printf(" veuillez entre le numero de telephone : ");
+            scanf("%s",reservation[indice].telephone);
+            printf("veuillez entre L age: ");
+            scanf("%d",&reservation[indice].age);
+            printf("veuillez entre le statut :");
+            scanf("%s",reservation[indice].statut);
+            printf("veuillez entre la date de reservation");
+            scanf("%s",reservation[indice].date);
+    }
     }
 
 void Recherche_des_reservations(){
