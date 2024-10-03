@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 typedef struct reservation_type {
     char nom[500];
     char prenom[500];
@@ -43,6 +44,7 @@ void ajouter_un_reservation(){
     nombre_de_reservation++;
 
 }
+
 void afficher_reservation(){
      printf("------------------------------------------\n");
     for(int i=0 ; i<nombre_de_reservation ; i++){
@@ -65,10 +67,10 @@ void tri_des_reservations(){
     puts("1.Tri des reservations par Nom:");
     puts("2.Tri des reservations par date :");
     puts("3.Tri des reservations par statut :");
+    printf("enter votre choix");
     scanf("%d",&choix);
     if(choix ==1){
             for(int i=0 ; i<nombre_de_reservation ; i++){
-
 
                     for(int j=0 ; j<nombre_de_reservation ; j++){
                         if(strcmp(reservation[j].nom,reservation[i].nom)>0 && reservation[i].deleted == 1){
@@ -81,7 +83,7 @@ void tri_des_reservations(){
 
                 }
                 afficher_reservation();
-            }
+    }
 
 
     else if(choix==2){
@@ -130,16 +132,16 @@ void suprimer_un_reservation(){
 void modifier_un_reservation(){
     int ref ;
     printf("\nentre le reference de reservation");
-    int indice =- 1;
+    int indice = -1;
     scanf("%d",&ref);
-    for(int i ; i< nombre_de_reservation;i++){
+    for(int i = 0 ; i< nombre_de_reservation;i++){
         if(ref==reservation[i].reference){
           indice = i;
           break;
         }
     }
-
-    if(indice != -12){
+    
+    if(indice != -1){
             printf(" veuillez entre le nom :");
             scanf("%s",reservation[indice].nom);
             printf(" veuillez entre le prenom : ");
@@ -152,6 +154,9 @@ void modifier_un_reservation(){
             scanf("%s",reservation[indice].statut);
             printf("veuillez entre la date de reservation");
             scanf("%s",reservation[indice].date);
+    }
+    else {
+        printf("aucun reservation trouver");
     }
     }
 
